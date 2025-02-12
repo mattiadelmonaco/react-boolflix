@@ -41,7 +41,7 @@ export default function SearchBar() {
       />
       <button
         type="submit"
-        className="border border-neutral-400 px-2 py-1 mr-2 rounded-md"
+        className="border border-neutral-400 px-2 py-1 mr-2 rounded-md cursor-pointer"
       >
         Cerca
       </button>

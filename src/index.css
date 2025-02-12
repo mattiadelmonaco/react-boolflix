@@ -18,3 +18,48 @@ body {
 header {
   background-color: black;
 }
+
+/* NAV LIST */
+
+header li {
+  transition: 0.4s;
+}
+
+header li:hover {
+  transform: scale(1.2);
+  transition: 0.4s;
+}
+
+header li:active {
+  color: rgb(71, 10, 10);
+}
+
+/* SEARCHBAR */
+
+header button {
+  transition: 0.4s;
+}
+
+header button:hover {
+  transform: scale(1.05);
+  transition: 0.4s;
+}
+
+header button:active {
+  background-color: gray;
+}
+
+header input {
+  transition: 0.4s;
+}
+
+header input:hover {
+  transform: scale(1.05);
+  transition: 0.4s;
+}
+
+header input:focus {
+  transition: 0.3s;
+  outline: 0.125rem solid rgb(71, 10, 10);
+  border: 0.0625rem solid transparent;
+}
