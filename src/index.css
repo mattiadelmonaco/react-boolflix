@@ -13,6 +13,24 @@ body {
   margin: 0 auto;
 }
 
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+  width: 0.625rem;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #760b0b;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #520b0b;
+}
+
 /* HEADER */
 
 header {
