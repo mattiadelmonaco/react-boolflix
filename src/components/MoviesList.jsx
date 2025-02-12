@@ -1,4 +1,15 @@
 export default function MoviesList({ movies, countryLanguage }) {
+  const voteInStars = (num) => {
+    let stars = [];
+    for (let i = 0; i < num; i++) {
+      stars.push(<i key={i} className="fa-solid fa-star"></i>);
+    }
+    for (let i = num; i < 5; i++) {
+      stars.push(<i key={i} className="fa-regular fa-star"></i>);
+    }
+    return stars;
+  };
+
   return (
     <ul>
       {movies.length ? <h2>Lista Film</h2> : null}
@@ -6,6 +17,10 @@ export default function MoviesList({ movies, countryLanguage }) {
       {movies.map((movie) => {
         return (
           <li key={movie.id}>
+            <img
+              src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
+              alt=""
+            />
             <h3>
               <strong>Titolo: </strong>
               {movie.title}
@@ -31,7 +46,7 @@ export default function MoviesList({ movies, countryLanguage }) {
             </h4>
             <h4>
               <strong>Media voto: </strong>
-              {movie.vote_average}
+              {voteInStars(Math.ceil(movie.vote_average / 2))}
             </h4>
           </li>
         );
