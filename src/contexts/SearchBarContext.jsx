@@ -4,9 +4,15 @@ const SearchBarContext = createContext();
 
 function SearchBarProvider({ children }) {
   const [movies, setMovies] = useState([]);
+  const [series, setSeries] = useState([]);
 
   return (
-    <SearchBarContext.Provider value={{ movies, setMovies }}>
+    <SearchBarContext.Provider
+      value={[
+        { movies, setMovies },
+        { series, setSeries },
+      ]}
+    >
       {children}
     </SearchBarContext.Provider>
   );
