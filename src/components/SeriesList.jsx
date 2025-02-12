@@ -1,7 +1,7 @@
 export default function SeriesList({ series, countryLanguage }) {
   return (
     <ul>
-      <h2>Lista Serie TV</h2>
+      {series.length ? <h2>Lista Serie TV</h2> : null}
 
       {series.map((series) => {
         return (
@@ -17,9 +17,11 @@ export default function SeriesList({ series, countryLanguage }) {
             <h4>
               <strong>Lingua originale: </strong>
               <img
-                src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${
-                  countryLanguage[series.original_language]
-                }.svg`}
+                src={
+                  `https://purecatamphetamine.github.io/country-flag-icons/3x2/${
+                    countryLanguage[series.original_language]
+                  }.svg` || "🏴‍☠️"
+                }
                 alt={`Lingua originale: ${series.original_language}`}
               />
             </h4>

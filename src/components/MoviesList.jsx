@@ -1,7 +1,7 @@
 export default function MoviesList({ movies, countryLanguage }) {
   return (
     <ul>
-      <h2>Lista Film</h2>
+      {movies.length ? <h2>Lista Film</h2> : null}
 
       {movies.map((movie) => {
         return (
@@ -17,9 +17,11 @@ export default function MoviesList({ movies, countryLanguage }) {
             <h4>
               <strong>Lingua originale: </strong>
               <img
-                src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${
-                  countryLanguage[movie.original_language]
-                }.svg`}
+                src={
+                  `https://purecatamphetamine.github.io/country-flag-icons/3x2/${
+                    countryLanguage[movie.original_language]
+                  }.svg` || "🏴‍☠️"
+                }
                 alt={`Lingua originale: ${movie.original_language}`}
               />
             </h4>
