@@ -16,14 +16,18 @@ export default function SeriesList({ series, countryLanguage }) {
             </h4>
             <h4>
               <strong>Lingua originale: </strong>
-              <img
-                src={
-                  `https://purecatamphetamine.github.io/country-flag-icons/3x2/${
-                    countryLanguage[series.original_language]
-                  }.svg` || "🏴‍☠️"
-                }
-                alt={`Lingua originale: ${series.original_language}`}
-              />
+              {countryLanguage[series.original_language] ? (
+                <img
+                  src={
+                    `https://purecatamphetamine.github.io/country-flag-icons/3x2/${
+                      countryLanguage[series.original_language]
+                    }.svg` || "#"
+                  }
+                  alt={`Lingua originale: ${series.original_language}`}
+                />
+              ) : (
+                <p>🏴‍☠️</p>
+              )}
             </h4>
             <h4>
               <strong>Media voto: </strong>
