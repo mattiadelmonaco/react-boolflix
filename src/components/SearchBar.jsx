@@ -37,8 +37,14 @@ export default function SearchBar() {
         placeholder="Cerca titolo"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
+        className="border border-neutral-400 px-2 py-1 mr-2 rounded-md"
       />
-      <button type="submit">Cerca</button>
+      <button
+        type="submit"
+        className="border border-neutral-400 px-2 py-1 mr-2 rounded-md"
+      >
+        Cerca
+      </button>
     </form>
   );
 }
