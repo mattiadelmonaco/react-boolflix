@@ -1,5 +1,16 @@
 import { useSearchBarContext } from "../contexts/SearchBarContext";
 
+const countryLanguage = {
+  en: "GB",
+  it: "IT",
+  fr: "FR",
+  de: "DE",
+  es: "ES",
+  ja: "JP",
+  zh: "CN",
+  ko: "KR",
+};
+
 export default function Main() {
   const { movies } = useSearchBarContext();
 
@@ -20,7 +31,12 @@ export default function Main() {
               </h4>
               <h4>
                 <strong>Lingua originale: </strong>
-                {movie.original_language}
+                <img
+                  src={`https://purecatamphetamine.github.io/country-flag-icons/3x2/${
+                    countryLanguage[movie.original_language]
+                  }.svg`}
+                  alt={`Lingua originale: ${movie.original_language}`}
+                />
               </h4>
               <h4>
                 <strong>Media voto: </strong>
