@@ -1,5 +1,6 @@
 import SearchBar from "./SearchBar";
 import { useState } from "react";
+import GenresAccordion from "./GenresAccordion";
 
 export default function Header() {
   const [alert, setAlert] = useState({ message: "" });
@@ -35,16 +36,19 @@ export default function Header() {
             />
           </a>
           <ul className="flex gap-8">
-            <li className="hidden lg:block" onClick={showAlert}>
+            <li className="ms-effect hidden lg:block" onClick={showAlert}>
               <a href="#">Home</a>
             </li>
-            <li className="hidden lg:block" onClick={showAlert}>
+            <li className="ms-effect hidden lg:block" onClick={showAlert}>
               <a href="#">Serie TV</a>
             </li>
-            <li className="hidden lg:block" onClick={showAlert}>
+            <li className="ms-effect hidden lg:block" onClick={showAlert}>
               <a href="#">Film</a>
             </li>
-            <li className="hidden lg:block" onClick={showAlert}>
+            <li>
+              <GenresAccordion />
+            </li>
+            <li className="ms-effect hidden lg:block" onClick={showAlert}>
               <a href="#">La mia lista</a>
             </li>
           </ul>

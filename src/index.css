@@ -3,7 +3,7 @@
 /* GENERAL */
 
 body {
-  background-color: #0f0f0f;
+  background-color: #131313;
   color: #fff;
   font-family: "Open Sans", serif;
 }
@@ -40,16 +40,16 @@ header {
 
 /* NAV LIST */
 
-header li {
+.ms-effect {
   transition: 0.4s;
 }
 
-header li:hover {
+.ms-effect:hover {
   transform: scale(1.2);
   transition: 0.4s;
 }
 
-header li:active {
+.ms-effect:active {
   color: rgb(71, 10, 10);
 }
 
@@ -128,5 +128,16 @@ header input:focus {
 
 .ms-esc:hover {
   transform: scale(1.2);
+  transition: 0.4s;
+}
+
+/* ACCORDION */
+
+.ms-accordion {
+  transition: 0.4s;
+}
+
+.ms-accordion:hover {
+  transform: scale(1.1);
   transition: 0.4s;
 }
