@@ -7,8 +7,8 @@ export default function MovieModal({
 }) {
   return (
     <div className="ms-modal" onClick={() => setSelectedMovie("")}>
-      <div className="flex items-center justify-self-center w-300 h-full">
-        <div className="flex gap-15 items-center">
+      <div className="flex justify-self-center max-w-300 h-[95vh] px-5 overflow-auto">
+        <div className="flex flex-col lg:flex-row gap-15 items-center">
           {selectedMovie.poster_path ? (
             <img
               className="h-120"
@@ -61,7 +61,7 @@ export default function MovieModal({
             {acthors && (
               <h3 className="text-lg font-bold mt-4">TOP 5 MEMBRI DEL CAST</h3>
             )}
-            <ul className="flex gap-10 justify-center">
+            <ul className="flex flex-col md:flex-row gap-10 justify-center">
               {acthors.map((acthor) => {
                 return (
                   <li
