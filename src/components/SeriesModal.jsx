@@ -5,6 +5,28 @@ export default function SeriesModal({
   countryLanguage,
   voteInStars,
 }) {
+  const genres = {
+    28: "Action",
+    12: "Adventure",
+    16: "Animation",
+    35: "Comedy",
+    80: "Crime",
+    99: "Documentary",
+    18: "Drama",
+    10751: "Family",
+    14: "Fantasy",
+    36: "History",
+    27: "Horror",
+    10402: "Music",
+    9648: "Mystery",
+    10749: "Romance",
+    878: "Science Fiction",
+    10770: "TV Movie",
+    53: "Thriller",
+    10752: "War",
+    37: "Western",
+  };
+
   return (
     <div className="ms-modal" onClick={() => setSelectedSerie("")}>
       <div className="flex justify-self-center max-w-300 h-[95vh] px-5 overflow-auto">
@@ -57,6 +79,14 @@ export default function SeriesModal({
                 <br />
                 {selectedSerie.overview}
               </p>
+            )}
+            {selectedSerie.genre_ids && (
+              <h4 className="mt-3 flex gap-2 items-center">
+                <strong className="text-lg">GENERI: </strong>
+                {selectedSerie.genre_ids.map((genre) => (
+                  <p key={genre}>{genres[genre]}</p>
+                ))}
+              </h4>
             )}
             {acthors && (
               <h3 className="text-lg font-bold mt-4">TOP 5 MEMBRI DEL CAST</h3>
