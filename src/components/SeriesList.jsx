@@ -28,12 +28,12 @@ export default function SeriesList({ series, countryLanguage }) {
               <h3>
                 <strong>Titolo: </strong>
                 <br />
-                {serie.title}
+                {serie.name}
               </h3>
               <h4>
                 <strong>Titolo originale: </strong>
                 <br />
-                {serie.original_title}
+                {serie.original_name}
               </h4>
               <h4 className="flex gap-2">
                 <strong>Lingua originale: </strong>
