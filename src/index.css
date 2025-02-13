@@ -104,3 +104,29 @@ header input:focus {
   transform: scale(1.05);
   transition: 0.4s;
 }
+
+/* MODAL */
+
+.ms-modal {
+  background-color: #000000dd;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.ms-esc {
+  font-size: 1.875rem;
+  cursor: pointer;
+  display: flex;
+  align-self: flex-start;
+  margin: 1.875rem 0;
+  transition: 0.4s;
+}
+
+.ms-esc:hover {
+  transform: scale(1.2);
+  transition: 0.4s;
+}

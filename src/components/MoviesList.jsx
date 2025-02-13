@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 export default function MoviesList({ movies, countryLanguage }) {
+  const [selectedMovie, setSelectedMovie] = useState("");
+
   const voteInStars = (num) => {
     let stars = [];
     for (let i = 0; i < num; i++) {
@@ -17,6 +21,7 @@ export default function MoviesList({ movies, countryLanguage }) {
           <li
             key={movie.id}
             className="ms-card border border-red-800 w-65 relative top-0 left-0 shadow-red-900 shadow-lg"
+            onClick={() => setSelectedMovie(movie)}
           >
             <img
               className="w-65 h-98"
@@ -65,6 +70,61 @@ export default function MoviesList({ movies, countryLanguage }) {
           </li>
         );
       })}
+      {selectedMovie && (
+        <div className="ms-modal" onClick={() => setSelectedMovie("")}>
+          <div className="flex items-center justify-self-center w-300 h-full">
+            <div className="flex gap-15">
+              <img
+                src={`https://image.tmdb.org/t/p/w342${selectedMovie.poster_path}`}
+                alt={selectedMovie.title}
+              />
+              <div className="space-y-3">
+                <h3 className="text-3xl">
+                  <strong>Titolo: </strong>
+                  <br />
+                  {selectedMovie.title}
+                </h3>
+                <h4 className="text-xl">
+                  <strong>Titolo originale: </strong>
+                  <br />
+                  {selectedMovie.original_title}
+                </h4>
+                <h4 className="flex items-center gap-2 text-xl">
+                  <strong>Lingua originale: </strong>
+                  {countryLanguage[selectedMovie.original_language] ? (
+                    <img
+                      className="w-8"
+                      src={
+                        `https://purecatamphetamine.github.io/country-flag-icons/3x2/${
+                          countryLanguage[selectedMovie.original_language]
+                        }.svg` || "#"
+                      }
+                      alt={`Lingua originale: ${selectedMovie.original_language}`}
+                    />
+                  ) : (
+                    <p>🏴‍☠️</p>
+                  )}
+                </h4>
+                <h4>
+                  <strong className="text-xl">Media voto: </strong>
+                  {voteInStars(Math.ceil(selectedMovie.vote_average / 2))}
+                </h4>
+                {selectedMovie.overview && (
+                  <p className="h-45 overflow-auto text-ellipsis">
+                    <strong className="text-xl">Trama: </strong>
+                    <br />
+                    {selectedMovie.overview}
+                  </p>
+                )}
+              </div>
+            </div>
+            <i
+              className="ms-esc fa-solid fa-xmark"
+              onClick={() => setSelectedMovie("")}
+            ></i>
+          </div>
+        </div>
+      )}
     </ul>
   );
 }
