@@ -35,11 +35,17 @@ export default function MoviesList({ movies, countryLanguage }) {
             className="ms-card border border-red-800 w-65 relative top-0 left-0 shadow-red-900 shadow-lg"
             onClick={() => [setSelectedMovie(movie), getActhors(movie.id)]}
           >
-            <img
-              className="w-65 h-98"
-              src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
-              alt=""
-            />
+            {movie.poster_path ? (
+              <img
+                className="w-65 h-98"
+                src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
+                alt=""
+              />
+            ) : (
+              <div className="flex justify-center mt-30">
+                <i className="fa-solid fa-image text-9xl text-red-950"></i>
+              </div>
+            )}
             <div className="ms-description h-full w-64.5 text-sm p-4 space-y-1.5 absolute top-0 left-0 bg-black">
               <h3>
                 <strong>Titolo: </strong>
@@ -86,11 +92,17 @@ export default function MoviesList({ movies, countryLanguage }) {
         <div className="ms-modal" onClick={() => setSelectedMovie("")}>
           <div className="flex items-center justify-self-center w-300 h-full">
             <div className="flex gap-15 items-center">
-              <img
-                className="h-120"
-                src={`https://image.tmdb.org/t/p/w342${selectedMovie.poster_path}`}
-                alt={selectedMovie.title}
-              />
+              {selectedMovie.poster_path ? (
+                <img
+                  className="h-120"
+                  src={`https://image.tmdb.org/t/p/w342${selectedMovie.poster_path}`}
+                  alt={selectedMovie.title}
+                />
+              ) : (
+                <div className="flex justify-center mt-30">
+                  <i className="fa-solid fa-image text-9xl text-red-950"></i>
+                </div>
+              )}
               <div key={selectedMovie.id} className="space-y-3">
                 <h3 className="text-2xl">
                   <strong>Titolo: </strong>
@@ -123,13 +135,17 @@ export default function MoviesList({ movies, countryLanguage }) {
                   {voteInStars(Math.ceil(selectedMovie.vote_average / 2))}
                 </h4>
                 {selectedMovie.overview && (
-                  <p className="h-35 mb-0 overflow-auto text-ellipsis">
+                  <p className="h-30 mb-0 overflow-auto text-ellipsis">
                     <strong className="text-lg">Trama: </strong>
                     <br />
                     {selectedMovie.overview}
                   </p>
                 )}
-                <h3 className="text-lg font-bold">TOP 5 MEMBRI DEL CAST</h3>
+                {acthors && (
+                  <h3 className="text-lg font-bold mt-4">
+                    TOP 5 MEMBRI DEL CAST
+                  </h3>
+                )}
                 <ul className="flex gap-10 justify-center">
                   {acthors.map((acthor) => {
                     return (
