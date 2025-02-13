@@ -19,8 +19,23 @@ export default function Main() {
 
   return (
     <main>
-      <MoviesList movies={movies} countryLanguage={countryLanguage} />
-      <SeriesList series={series} countryLanguage={countryLanguage} />
+      <div className="container px-5">
+        {movies.length ? (
+          <h2 className="text-5xl text-center lg:text-start font-bold my-5">
+            LISTA FILM
+          </h2>
+        ) : null}
+        <MoviesList movies={movies} countryLanguage={countryLanguage} />
+        {movies.length ? <hr className=" border border-red-800" /> : null}
+
+        {series.length ? (
+          <h2 className="text-5xl text-center lg:text-start font-bold my-5">
+            LISTA SERIE TV
+          </h2>
+        ) : null}
+        <SeriesList series={series} countryLanguage={countryLanguage} />
+        {series.length ? <hr className=" border border-red-800" /> : null}
+      </div>
     </main>
   );
 }

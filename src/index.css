@@ -25,6 +25,7 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background: #760b0b;
+  border-radius: 0.625rem;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -80,4 +81,26 @@ header input:focus {
   transition: 0.3s;
   outline: 0.125rem solid rgb(71, 10, 10);
   border: 0.0625rem solid transparent;
+}
+
+/* MAIN */
+
+.ms-card {
+  transition: 0.4s;
+}
+
+.ms-description {
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.ms-card:hover .ms-description {
+  transition: 0.4s;
+  opacity: 1;
+}
+
+.ms-card:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: 0.4s;
 }
