@@ -30,8 +30,8 @@ export default function Header() {
           </a>
           <a href="#">
             <img
-              className="hidden md:block"
-              src="/logo-grande-boolflix.png"
+              className="hidden w-75 md:block"
+              src="/fontbolt.png"
               alt="Logo BoolFlix"
             />
           </a>
