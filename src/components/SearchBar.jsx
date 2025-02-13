@@ -14,6 +14,7 @@ export default function SearchBar() {
       .get("https://api.themoviedb.org/3/search/movie", {
         params: {
           api_key: "a2a818323e4aed568180bfa536321829",
+          language: "it-IT",
           query: search,
         },
       })
