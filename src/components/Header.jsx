@@ -56,7 +56,7 @@ export default function Header() {
       {/* ALERT */}
 
       {alert.message && (
-        <div className="text-white min-w-70 p-3 shadow-2xl fixed bottom-15 right-15 rounded-lg bg-red-900">
+        <div className="text-white min-w-70 p-3 shadow-2xl fixed bottom-15 right-15 rounded-lg bg-red-900 z-100">
           <div className="flex justify-between items-center">
             <i className="fa-solid fa-triangle-exclamation"></i>
             <p>{alert.message}</p>
