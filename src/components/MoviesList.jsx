@@ -1,7 +1,19 @@
 import { useState } from "react";
+import axios from "axios";
 
 export default function MoviesList({ movies, countryLanguage }) {
   const [selectedMovie, setSelectedMovie] = useState("");
+  const [acthors, setActhors] = useState([]);
+
+  const getActhors = (acthorId) => {
+    axios
+      .get(`https://api.themoviedb.org/3/movie/${acthorId}/credits`, {
+        params: {
+          api_key: "a2a818323e4aed568180bfa536321829",
+        },
+      })
+      .then((res) => setActhors(res.data.cast.slice(0, 5)));
+  };
 
   const voteInStars = (num) => {
     let stars = [];
@@ -21,7 +33,7 @@ export default function MoviesList({ movies, countryLanguage }) {
           <li
             key={movie.id}
             className="ms-card border border-red-800 w-65 relative top-0 left-0 shadow-red-900 shadow-lg"
-            onClick={() => setSelectedMovie(movie)}
+            onClick={() => [setSelectedMovie(movie), getActhors(movie.id)]}
           >
             <img
               className="w-65 h-98"
@@ -73,23 +85,24 @@ export default function MoviesList({ movies, countryLanguage }) {
       {selectedMovie && (
         <div className="ms-modal" onClick={() => setSelectedMovie("")}>
           <div className="flex items-center justify-self-center w-300 h-full">
-            <div className="flex gap-15">
+            <div className="flex gap-15 items-center">
               <img
+                className="h-120"
                 src={`https://image.tmdb.org/t/p/w342${selectedMovie.poster_path}`}
                 alt={selectedMovie.title}
               />
-              <div className="space-y-3">
-                <h3 className="text-3xl">
+              <div key={selectedMovie.id} className="space-y-3">
+                <h3 className="text-2xl">
                   <strong>Titolo: </strong>
                   <br />
                   {selectedMovie.title}
                 </h3>
-                <h4 className="text-xl">
+                <h4 className="text-lg">
                   <strong>Titolo originale: </strong>
                   <br />
                   {selectedMovie.original_title}
                 </h4>
-                <h4 className="flex items-center gap-2 text-xl">
+                <h4 className="flex items-center gap-2 text-lg">
                   <strong>Lingua originale: </strong>
                   {countryLanguage[selectedMovie.original_language] ? (
                     <img
@@ -106,16 +119,47 @@ export default function MoviesList({ movies, countryLanguage }) {
                   )}
                 </h4>
                 <h4>
-                  <strong className="text-xl">Media voto: </strong>
+                  <strong className="text-lg">Media voto: </strong>
                   {voteInStars(Math.ceil(selectedMovie.vote_average / 2))}
                 </h4>
                 {selectedMovie.overview && (
-                  <p className="h-45 overflow-auto text-ellipsis">
-                    <strong className="text-xl">Trama: </strong>
+                  <p className="h-35 mb-0 overflow-auto text-ellipsis">
+                    <strong className="text-lg">Trama: </strong>
                     <br />
                     {selectedMovie.overview}
                   </p>
                 )}
+                <h3 className="text-lg font-bold">TOP 5 MEMBRI DEL CAST</h3>
+                <ul className="flex gap-10 justify-center">
+                  {acthors.map((acthor) => {
+                    return (
+                      <li
+                        key={acthor.id}
+                        className="flex flex-col items-center text-center"
+                      >
+                        <h4>
+                          Nome attore:
+                          <br />
+                          <strong>{acthor.name}</strong>
+                        </h4>
+                        <h4>
+                          Personaggio:
+                          <br />
+                          <strong>{acthor.character}</strong>
+                        </h4>
+                        {acthor.profile_path ? (
+                          <img
+                            className="w-20"
+                            src={`https://image.tmdb.org/t/p/w185${acthor.profile_path}`}
+                            alt={acthor.name}
+                          />
+                        ) : (
+                          <i className="fa-solid fa-user text-8xl mt-3 text-red-950"></i>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
               </div>
             </div>
             <i
