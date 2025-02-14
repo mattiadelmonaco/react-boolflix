@@ -34,7 +34,7 @@ export default function Main() {
           </h2>
         ) : null}
         <SeriesList series={series} countryLanguage={countryLanguage} />
-        {series.length ? <hr className=" border border-red-800" /> : null}
+        {series.length ? <hr className=" border border-red-800 mb-10" /> : null}
       </div>
     </main>
   );
