@@ -2,6 +2,7 @@ import { useSearchBarContext } from "../contexts/SearchBarContext";
 
 import MoviesList from "./MoviesList";
 import SeriesList from "./SeriesList";
+import SearchBar from "./SearchBar";
 
 const countryLanguage = {
   en: "GB",
@@ -20,6 +21,22 @@ export default function Main() {
   return (
     <main>
       <div className="container px-5">
+        {!movies.length && !series.length ? (
+          <div>
+            <h1 className="text-5xl md:text-6xl font-extrabold text-center mt-15">
+              BENVENUTO SU
+            </h1>
+
+            <img
+              className="flex justify-self-center"
+              src="/fontbolt.png"
+              alt="Logo BoolFlix"
+            />
+            <div className="flex justify-center">
+              <SearchBar />
+            </div>
+          </div>
+        ) : null}
         {movies.length ? (
           <h2 className="text-5xl text-center lg:text-start font-bold my-5">
             LISTA FILM
