@@ -50,8 +50,13 @@ export default function GenresAccordion() {
                 <input
                   type="checkbox"
                   name="select"
-                  onClick={() => {
-                    setGenresFilter([...genresFilter, genre.id]);
+                  checked={genresFilter.includes(genre.id)}
+                  onChange={(event) => {
+                    setGenresFilter((currentValue) =>
+                      event.target.checked
+                        ? [...currentValue, genre.id]
+                        : currentValue.filter((id) => id !== genre.id)
+                    );
                   }}
                 />
               </li>
