@@ -1,10 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
 import SeriesModal from "./SeriesModal";
+import { useGenresFilterContext } from "../contexts/GenresFilterContext";
 
 export default function SeriesList({ series, countryLanguage }) {
   const [selectedSerie, setSelectedSerie] = useState("");
   const [acthors, setActhors] = useState([]);
+  const { genresFilter } = useGenresFilterContext();
 
   const getActhors = (acthorId) => {
     axios
@@ -27,9 +29,23 @@ export default function SeriesList({ series, countryLanguage }) {
     return stars;
   };
 
+  const filteredSerie = series.filter((serie) => {
+    if (genresFilter.length === 0) {
+      return true;
+    }
+    console.log(serie.genre_ids, genresFilter, serie.title);
+    for (let i = 0; i < serie.genre_ids.length; i++) {
+      let genre = serie.genre_ids[i];
+      if (genresFilter.includes(genre)) {
+        return true;
+      }
+    }
+    return false;
+  });
+
   return (
     <ul className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-10 my-10 pb-10 justify-items-center">
-      {series.map((serie) => {
+      {filteredSerie.map((serie) => {
         return (
           <li
             key={serie.id}
