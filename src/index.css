@@ -16,7 +16,7 @@ body {
 /* SCROLLBAR */
 
 ::-webkit-scrollbar {
-  width: 0.625rem;
+  width: 0.3125rem;
 }
 
 ::-webkit-scrollbar-track {
@@ -140,4 +140,8 @@ header input:focus {
 .ms-accordion:hover {
   transform: scale(1.1);
   transition: 0.4s;
+}
+
+.filter:hover {
+  transform: scale(1);
 }

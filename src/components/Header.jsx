@@ -45,15 +45,14 @@ export default function Header() {
             <li className="ms-effect hidden lg:block" onClick={showAlert}>
               <a href="#">Film</a>
             </li>
-            <li>
-              <GenresAccordion />
-            </li>
+
             <li className="ms-effect hidden lg:block" onClick={showAlert}>
               <a href="#">La mia lista</a>
             </li>
           </ul>
 
           <SearchBar />
+          {/* <GenresAccordion /> */}
         </div>
       </div>
 

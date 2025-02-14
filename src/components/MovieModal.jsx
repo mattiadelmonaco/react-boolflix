@@ -33,7 +33,7 @@ export default function MovieModal({
         <div className="flex flex-col lg:flex-row gap-15 items-center">
           {selectedMovie.poster_path ? (
             <img
-              className="h-120"
+              className="h-120 mt-10"
               src={`https://image.tmdb.org/t/p/w342${selectedMovie.poster_path}`}
               alt={selectedMovie.title}
             />
@@ -42,7 +42,7 @@ export default function MovieModal({
               <i className="fa-solid fa-image text-9xl text-red-950"></i>
             </div>
           )}
-          <div key={selectedMovie.id} className="space-y-3">
+          <div key={selectedMovie.id} className="space-y-2">
             <h3 className="text-2xl">
               <strong>Titolo: </strong>
               <br />

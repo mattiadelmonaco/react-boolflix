@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useSearchBarContext } from "../contexts/SearchBarContext";
 import axios from "axios";
+import GenresAccordion from "./GenresAccordion";
 
 export default function SearchBar() {
   const [search, setSearch] = useState("");
@@ -38,14 +39,15 @@ export default function SearchBar() {
         placeholder="Cerca titolo"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="border border-neutral-400 px-2 py-1 mr-2 rounded-md"
+        className="border border-neutral-400 px-2 py-1 mr-2 mb-1 rounded-md"
       />
       <button
         type="submit"
-        className="border border-neutral-400 px-2 py-1 mr-2 rounded-md cursor-pointer"
+        className="border border-neutral-400 px-2 py-1 rounded-md cursor-pointer"
       >
         Cerca
       </button>
+      <GenresAccordion />
     </form>
   );
 }

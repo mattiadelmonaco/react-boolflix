@@ -33,7 +33,7 @@ export default function SeriesModal({
         <div className="flex flex-col lg:flex-row gap-15 items-center">
           {selectedSerie.poster_path ? (
             <img
-              className="h-120"
+              className="h-120 mt-10"
               src={`https://image.tmdb.org/t/p/w342${selectedSerie.poster_path}`}
               alt={selectedSerie.name}
             />
@@ -42,7 +42,7 @@ export default function SeriesModal({
               <i className="fa-solid fa-image text-9xl text-red-950"></i>
             </div>
           )}
-          <div key={selectedSerie.id} className="space-y-3">
+          <div key={selectedSerie.id} className="space-y-2">
             <h3 className="text-2xl">
               <strong>Titolo: </strong>
               <br />
