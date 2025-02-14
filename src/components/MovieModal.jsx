@@ -81,7 +81,7 @@ export default function MovieModal({
               </p>
             )}
             {selectedMovie.genre_ids && (
-              <h4 className="mt-3 flex gap-2 items-center">
+              <h4 className="mt-2 flex gap-2 items-center">
                 <strong className="text-lg">GENERI: </strong>
                 {selectedMovie.genre_ids.map((genre) => (
                   <p key={genre}>{genres[genre]}</p>
@@ -89,7 +89,7 @@ export default function MovieModal({
               </h4>
             )}
             {acthors && (
-              <h3 className="text-lg font-bold mt-4">TOP 5 MEMBRI DEL CAST</h3>
+              <h3 className="text-lg font-bold mt-2">TOP 5 MEMBRI DEL CAST</h3>
             )}
             <ul className="flex flex-col md:flex-row gap-10 justify-center">
               {acthors.map((acthor) => {
@@ -98,19 +98,19 @@ export default function MovieModal({
                     key={acthor.id}
                     className="flex flex-col items-center text-center"
                   >
-                    <h4>
+                    <h4 className="text-sm">
                       Nome attore:
                       <br />
                       <strong>{acthor.name}</strong>
                     </h4>
-                    <h4>
+                    <h4 className="text-sm">
                       Personaggio:
                       <br />
                       <strong>{acthor.character}</strong>
                     </h4>
                     {acthor.profile_path ? (
                       <img
-                        className="w-20"
+                        className="w-16 mt-2"
                         src={`https://image.tmdb.org/t/p/w185${acthor.profile_path}`}
                         alt={acthor.name}
                       />
