@@ -1,9 +1,11 @@
 import { useState } from "react";
 import axios from "axios";
+import { useGenresFilterContext } from "../contexts/GenresFilterContext";
 
 export default function GenresAccordion() {
   const [genres, setGenres] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
+  const { genresFilter, setGenresFilter } = useGenresFilterContext();
 
   const getGenres = () => {
     axios
@@ -35,19 +37,28 @@ export default function GenresAccordion() {
           +
         </button>
       </div>
-      <ul className="flex flex-col mt-5 z-30 absolute left-0 top-3 bg-black rounded-lg px-2">
-        {genres.map((genre) => {
-          return (
-            <li
-              key={genre.id}
-              className="cursor-pointer my-1 border-b-2 border-red-950 ms-accordion"
-              onClick={toggleAccordion}
-            >
-              {genre.name}
-            </li>
-          );
-        })}
-      </ul>
+      {isOpen && (
+        <ul className="flex flex-col mt-5 z-30 absolute left-0 top-3 bg-black rounded-lg px-2 h-90 w-40 overflow-auto">
+          {genres.map((genre) => {
+            return (
+              <li
+                key={genre.id}
+                className="flex gap-2 cursor-pointer my-1 border-b-2 border-red-950"
+                // onClick={toggleAccordion}
+              >
+                <h3 className="mb-0.5">{genre.name}</h3>
+                <input
+                  type="checkbox"
+                  name="select"
+                  onClick={() => {
+                    setGenresFilter([...genresFilter, genre.id]);
+                  }}
+                />
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </div>
   );
 }
