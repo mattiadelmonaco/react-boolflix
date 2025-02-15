@@ -52,7 +52,6 @@ export default function Header() {
           </ul>
 
           <SearchBar />
-          {/* <GenresAccordion /> */}
         </div>
       </div>
 

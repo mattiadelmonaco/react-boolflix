@@ -91,7 +91,7 @@ export default function SeriesModal({
             {acthors && (
               <h3 className="text-lg font-bold mt-2">TOP 5 MEMBRI DEL CAST</h3>
             )}
-            <ul className="flex flex-col md:flex-row gap-10 justify-center">
+            <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-10 justify-center">
               {acthors.map((acthor) => {
                 return (
                   <li

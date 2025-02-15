@@ -23,7 +23,7 @@ export default function Main() {
       <div className="container px-5">
         {!movies.length && !series.length ? (
           <div>
-            <h1 className="text-5xl md:text-6xl font-extrabold text-center mt-15">
+            <h1 className="ms-text-xs text-5xl md:text-6xl font-extrabold text-center mt-15">
               BENVENUTO SU
             </h1>
 
@@ -38,7 +38,7 @@ export default function Main() {
           </div>
         ) : null}
         {movies.length ? (
-          <h2 className="text-5xl text-center lg:text-start font-bold my-5">
+          <h2 className="text-5xl text-center lg:text-start font-extrabold my-5">
             LISTA FILM
           </h2>
         ) : null}
@@ -46,7 +46,7 @@ export default function Main() {
         {movies.length ? <hr className=" border border-red-800" /> : null}
 
         {series.length ? (
-          <h2 className="text-5xl text-center lg:text-start font-bold my-5">
+          <h2 className="text-5xl text-center lg:text-start font-extrabold my-5">
             LISTA SERIE TV
           </h2>
         ) : null}

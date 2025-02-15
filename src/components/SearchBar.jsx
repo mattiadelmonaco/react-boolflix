@@ -39,13 +39,14 @@ export default function SearchBar() {
         placeholder="Cerca titolo"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="border border-neutral-400 px-2 py-1 mr-2 mb-1 rounded-md"
+        className="ms-input sm:text-xl border border-neutral-400 px-2 py-1 mr-2 mb-1 rounded-md"
       />
       <button
         type="submit"
-        className="border border-neutral-400 px-2 py-1 rounded-md cursor-pointer"
+        className="ms-btn-xs sm:text-xl border border-neutral-400 px-2 py-1 rounded-md cursor-pointer"
       >
-        Cerca
+        <i className="ms-hidden-sm fa-solid fa-magnifying-glass "></i>
+        <p className="ms-hidden md:block">Cerca</p>
       </button>
       <GenresAccordion />
     </form>

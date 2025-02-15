@@ -29,18 +29,20 @@ export default function GenresAccordion() {
   return (
     <div className=" relative">
       <div className="flex justify-center" onClick={toggleAccordion}>
-        <h3 className="cursor-pointer pr-1">Filtra per genere</h3>
-        <button type="button" className="cursor-pointer">
+        <h3 className="cursor-pointer pr-1 text-xs ms-text-sm">
+          Filtra risultati per genere
+        </h3>
+        <button type="button" className="cursor-pointer text-xs ms-text-sm">
           <i className="fa-solid fa-caret-down"></i>
         </button>
       </div>
       {isOpen && (
-        <ul className="flex flex-col mt-5 z-30 absolute right-12.5 top-3 bg-black rounded-lg px-2 h-90 w-40 overflow-auto">
+        <ul className="flex flex-col mt-5 z-30 absolute ms-position bg-black rounded-lg px-2 h-90 w-40 overflow-auto">
           {genres.map((genre) => {
             return (
               <li
                 key={genre.id}
-                className="flex gap-2 cursor-pointer my-1 border-b-2 border-red-950"
+                className="flex gap-2 cursor-pointer my-1 border-b-2 border-red-950 text-lg"
               >
                 <h3 className="mb-0.5">{genre.name}</h3>
                 <input

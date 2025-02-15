@@ -131,17 +131,48 @@ header input:focus {
   transition: 0.4s;
 }
 
-/* ACCORDION */
+/* RESPONSIVE */
 
-.ms-accordion {
-  transition: 0.4s;
+/* EXTRA EXTRA SMALL */
+
+@media screen and (max-width: 30rem) {
+  .ms-text-xs {
+    font-size: 1.875rem;
+  }
+  .ms-input {
+    font-size: 0.9375rem;
+    width: 7.5rem;
+  }
+  .ms-btn-xs {
+    font-size: 0.9375rem;
+  }
+  .ms-hidden {
+    display: none;
+  }
+  .ms-position {
+    right: 0;
+    top: 0.5rem;
+  }
 }
 
-.ms-accordion:hover {
-  transform: scale(1.1);
-  transition: 0.4s;
+/* EXTRA SMALL */
+
+@media screen and (min-width: 481px) {
+  .ms-hidden-sm {
+    display: none;
+  }
+  .ms-position {
+    right: 3.125rem;
+    top: 0.5rem;
+  }
+  .ms-text-sm {
+    font-size: 1.125rem;
+  }
 }
 
-.filter:hover {
-  transform: scale(1);
+/* SMALL (TAILWIND) */
+@media screen and (min-width: 40rem) {
+  .ms-position {
+    right: 5rem;
+  }
 }
